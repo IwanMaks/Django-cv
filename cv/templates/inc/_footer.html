@@ -1,0 +1,17 @@
+{% load footer-tags %}
+
+<div class="col-sm-6 col-md-6">
+    <div class="footer-item">
+        <div class="footer-title">
+            Contact
+        </div>
+        <address>
+
+          {% get_address %}
+          Email : <a href="mailto:#">{% get_email %}</a><br>
+          <abbr title="Phone">Phone:</abbr> {% get_phone %}<br>
+        </address>
+    </div>
+</div>
+
+{% show_social %}

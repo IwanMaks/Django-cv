@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block jumbotron %}
+    <div id="home" class="section headerV1" style="background: #000 url({{ allImg.startImg.url }}) center center no-repeat; background-size: cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="side-link left">
+                    <a href="#about"><i class="fa fa-long-arrow-left"></i> About Me</a>
+                </div>
+                <div class="jumbotron">
+                    <h1 class="type-headings">Hi, <span class="normal">my name is</span> <span class="cursive">{{ about.selfName }}</span></h1>
+                    <p class="subheading">Professional User Experience Designer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block about %}
+    <div id="about" class="section about p-bottom0 p-top50">
+		<div class="container">
+
+			<div class="row eqHeight">
+				<div class="col-sm- col-md-3 col">
+					<div class="full-height-spacer">
+						<div class="side-link left">
+							<a href="#services"><i class="fa fa-long-arrow-left"></i> View Services</a>
+						</div>
+						<div class="section-heading">ABOUT <span class="font__color-1">ME</span></div>
+					</div>
+				</div>
+				<div class="col-sm-5 col-md-5 col">
+					<div class="spacer-90"></div>
+					<p><strong>{{ about.title }}</strong></p>
+					<p>{{ about.text }}</p>
+					<p><strong>{{ about.quote }}</strong></p>
+					<div class="spacer-30"></div>
+					<img src="{% static 'images/signature.jpg' %}" alt="">
+					<div class="spacer-10"></div>
+					<div class="sosmed-icon">
+                        {% for item in social %}
+                            <a href="{{ item.link }}" title="{{ item.title }}" target="_blank">
+                                <div class="item">
+                                    <i class="fa fa-{{ item.title }}"></i>
+                                </div>
+                            </a>
+                        {% endfor %}
+					</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col">
+					<div class="spacer-90"></div>
+					<div class="about-img">
+						<img src="{{ about.image.url }}" alt="" class="img-responsive">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block knowledge %}
+    <div id="services" class="section services bg-1">
+		<div class="container">
+			<div class="row eqHeight">
+
+				<div class="col-sm-9 col-md-9">
+					<h2 class="section-heading-2 center">
+						KNOWLEDGE
+					</h2>
+					<div class="row list-services">
+                        {% for item in knowledge %}
+						    <div class="col-sm-6 col-md-6">
+                                <div class="box-icon-1">
+                                    <div class="icon">
+                                        <i class="fa fa-{{ item.icon }}"></i>
+                                    </div>
+                                    <div class="body-content">
+                                        <h4 class="title">{{ item.title }}</h4>
+                                        <div class="text">{{ item.content }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+					</div>
+				</div>
+				<div class="col-sm-3 col-md-3">
+					<div class="full-height-spacer">
+						<div class="side-link right dark">
+							<a href="#skill"><i class="fa fa-long-arrow-left"></i> View Skills</a>
+						</div>
+						<div class="section-heading text-right">MY <span class="font__color-white">SERVICES</span></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+{% endblock %}
+
+{% block skill %}
+    <div id="skill" class="section project bg-2 p-bottom0">
+		<div class="container">
+			<div class="row eqHeight">
+				<div class="col-sm-3 col-md-3">
+					<div class="full-height-spacer">
+						<div class="side-link left">
+							<a href="#story"><i class="fa fa-long-arrow-left"></i> View Experience</a>
+						</div>
+						<div class="section-heading font__color-white">MY <span class="font__color-1">SKILL</span></div>
+					</div>
+				</div>
+				<div class="col-sm-5 col-md-5">
+					<img src="{{ allImg.skillImg.url }}" class="img-responsive" alt="" style="background-size: cover">
+				</div>
+				<div class="col-sm-4 col-md-4">
+					<div class="spacer-50"></div>
+					<h2 class="section-heading-2 font__color-white">
+						WHAT YOU NEED TO KNOW
+					</h2>
+					<p class="font__color-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget.</p>
+
+					<div class="progress-bar-2 skill-progress progress-bar-left">
+						<div class="spacer-30"></div>
+						{% for item in skill %}
+			          	    <div class="skill" data-percent="{{ item.percent }}">
+                                <p>{{ item.title }}</p>
+                                <div class="outer-box">
+                                  <div class="element"><span>{{ item.percent }}% </span></div>
+                                </div>
+                            </div>
+                        {% endfor %}
+					</div>
+
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+{% endblock %}
+
+{% block story %}
+    <div id="story" class="section story">
+		<div class="container">
+
+			<div class="row eqHeight">
+				<div class="col-sm-3 col-md-3">
+					<div class="full-height-spacer">
+						<div class="side-link left">
+							<a href="#work"><i class="fa fa-long-arrow-left"></i> View Works</a>
+						</div>
+						<div class="section-heading font__color-2">MY <span class="font__color-1">STORY</span></div>
+					</div>
+				</div>
+				<div class="col-sm-9 col-md-9">
+					<div class="history-2">
+                        {% for item in story %}
+		                    <div class="timeline__item">
+                                <div class="year-box"><span>{{ item.year }}</span></div>
+
+                                <div class="body-text">
+                                  <div class="title">{{ item.job }}</div>
+                                  <div class="subtitle">{{ item.post }}</div>
+                                  <p>{{ item.content }}</p>
+                                </div>
+                              </div>
+                        {% endfor %}
+		            </div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+{% endblock %}
+
+{% block project %}
+    <div id="work" class="section project bg-1">
+		<div class="container">
+
+			<div class="row eqHeight">
+				<div class="col-sm-9 col-md-9">
+					<div class="row gallery-work">
+                        {% for item in work %}
+						<div class="col-sm-4 col-md-4">
+							<a href="{{ item.get_absolute_url }}"><img src="{{ item.image.url }}" alt="" class="img-responsive"></a>
+						</div>
+                        {% endfor %}
+					</div>
+				</div>
+				<div class="col-sm-3 col-md-3">
+					<div class="full-height-spacer">
+						<div class="side-link right dark">
+							<a href="#contact"><i class="fa fa-long-arrow-left"></i> View Contact</a>
+						</div>
+						<div class="section-heading text-right">MY <span class="font__color-white">WORK</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block contact %}
+    <div id="contact" class="section contact pad" style="background: url({{ allImg.contactImg.url }}) bottom center no-repeat">
+		<div class="container">
+			<div class="row">
+				<div class="clearfix"></div>
+				<div class="spacer-50"></div>
+				<div class="col-sm-12 col-md-8 col-md-offset-2">
+					<div class="section-heading text-center font__color-white">MY <span class="font__color-1">CONTACT</span></div>
+					<div class="spacer-30"></div>
+
+					<form class="form-contact text-center" method="post" id="contactForm" data-toggle="validator" novalidate="true">
+
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+{#                        {{ form.non_field_errors }}#}
+{#						<div class="form-group">#}
+{#							{{ form.name }}#}
+{#							<div class="help-block with-errors"></div>#}
+{#						</div>#}
+{##}
+{#						<div class="form-group">#}
+{#							{{ form.email }}#}
+{#							<div class="help-block with-errors"></div>#}
+{#						</div>#}
+{#						<div class="form-group">#}
+{#							{{ form.subject }}#}
+{#							<div class="help-block with-errors"></div>#}
+{#						</div>#}
+{#						<div class="form-group">#}
+{#                            {{ form.message }}#}
+{#							<div class="help-block with-errors"></div>#}
+{#						</div>#}
+                        <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
